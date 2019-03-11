@@ -1,8 +1,8 @@
 package com.capgemini.heskuelita.core.beans;
 
-import java.time.LocalDate;
 import lombok.*;
 
+import java.time.LocalDate;
 
 
 @Data
@@ -14,9 +14,5 @@ public class User {
     private String email;
     private LocalDate created;
     private LocalDate updated;
-
-
-
-
 
 }

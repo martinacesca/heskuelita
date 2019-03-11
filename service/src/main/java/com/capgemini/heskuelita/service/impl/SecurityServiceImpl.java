@@ -18,12 +18,12 @@ public class SecurityServiceImpl implements ISecurityService {
     }
 
     @Override
-    public void login(User user) throws SecurityException {
+    public void login (User user) throws SecurityException {
 
+        try {
+            user = this.userDao.login (user.getUserName(), user.getPassword());
+        } catch (Exception e) {
 
-        try{
-            User us  = this.userDao.login(user.getUserName, user.getPassword);
-        }catch (Exception e){
             throw new SecurityException(e);
         }
        // if (!user.getUserName().equals("capgemini") || !user.getPassword().equals("qwerty") ){
