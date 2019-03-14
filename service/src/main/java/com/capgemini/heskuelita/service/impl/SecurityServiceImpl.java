@@ -26,8 +26,9 @@ public class SecurityServiceImpl implements ISecurityService {
 
             throw new SecurityException(e);
         }
-       // if (!user.getUserName().equals("capgemini") || !user.getPassword().equals("qwerty") ){
-       //     throw new SecurityException( "Usuario invalido");
-       // }
+
+        // if (!user.getUserName().equals("capgemini") || !user.getPassword().equals("qwerty") ){
+        //    throw new SecurityException( "Usuario invalido");
+        //}
     }
 }

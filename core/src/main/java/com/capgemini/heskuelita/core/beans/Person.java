@@ -1,6 +1,5 @@
 package com.capgemini.heskuelita.core.beans;
 
-import java.time.LocalDate;
 
 public class Person extends Component{
 
@@ -96,14 +95,33 @@ public class Person extends Component{
         this.zipcode = zipcode;
     }
 
+
+
     //Constructor without atributes
     public Person () {
         super ();
     }
 
+    // Constructor ALL Person atributes EXCEPT ID.
+    public Person( String name, String lastName, String birthdate, String documentType,
+                   String identification, String phone, String sex, String city, String adress, String zipcode) {
+
+        this.name = name;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.documentType = documentType;
+        this.identification = identification;
+        this.phone = phone;
+        this.sex = sex;
+        this.city = city;
+        this.adress = adress;
+        this.zipcode = zipcode;
+    }
+
     // Constructor ALL Person atributes
-    public Person(long id, String name, String lastName, String birthdate, String documentType,
-                  String identification, String phone, String sex, String city, String adress, String zipcode) {
+    public Person( long id, String name, String lastName, String birthdate, String documentType,
+                   String identification, String phone, String sex, String city, String adress, String zipcode) {
+
         super(id);
         this.name = name;
         this.lastName = lastName;

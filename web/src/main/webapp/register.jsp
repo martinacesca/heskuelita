@@ -53,7 +53,7 @@
 		        <!--   Last name -->
 		        <div class="font-style col-xs-6" >
 		          	<label for="last_name">Last Name:</label>
-		          	<input type="text"  class="form-control" id="last_name" placeholder="Enter your last name" name="last_name" required>
+		          	<input type="text"  class="form-control" id="last_name" placeholder="Enter your last name" name="lastName" required>
 		        </div>
 		    </div>
 
@@ -67,9 +67,9 @@
 		        <!--   Sex -->
 		        <div class="font-style col-xs-6" >
 		          	<label>Sex:</label><br>
-		          	<input type="radio" id="sex" name="sex" value="male"> Male
-		          	<input type="radio" id="sex" name="sex" value="female"> Female
-		          	<input type="radio" id="sex" name="sex" value="other"> Other
+		          	<input type="radio" id="m" name="sex" value="M"> Male
+		          	<input type="radio" id="f" name="sex" value="F"> Female
+		          	<input type="radio" id="o" name="sex" value="O"> Other
 		        </div>
 		    </div>
 
@@ -78,17 +78,17 @@
 		    	<!--   Document type -->
 		        <div class="font-style col-xs-6" >
 			        <label for="document">Document type:</label> <br>
-			        <input type="radio" id="document_type" name="document_type" value="dni"> DNI
-			        <input type="radio" id="document_type" name="document_type" value="pasaporte"> Pasaporte
-			        <input type="radio" id="document_type" name="document_type" value="cedula">Cedula
-			        <input type="radio" id="document_type" name="document_type" value="other"> Other
+			        <input type="radio" id="dni" name="documentType" value="DNI"> DNI
+			        <input type="radio" id="pasaporte" name="documentType" value="Pasaporte"> Pasaporte
+			        <input type="radio" id="cedula" name="documentType" value="Cedula">Cedula
+			        <input type="radio" id="other" name="documentType" value="Other"> Other
 			        <!--   Document numbrer -->
-			        <input type="text"  class="col-xs-6 form-control " id="document" placeholder="Enter your document" name="document" required>
+			        <input type="text"  class="col-xs-6 form-control " id="document" placeholder="Enter your document" name="identification" required>
 		        </div>
 		        <!--   other document type -->
 		        <div class="font-style col-xs-6 " ><br>
 		          <label for="document">In case of other specify document type:</label> <br>
-		          <input type="text"  class="form-control " id="document_s" placeholder="Specify document type" name="document_s">
+		          <input type="text"  class="form-control " id="other" placeholder="Specify document type" name="oher">
 		        </div>
 		    </div>
 
@@ -96,7 +96,7 @@
 	      	<div class="row">
 	        	<div class="font-style col-xs-6">
 	          		<label for="telephone">Telephone number:</label>
-	          		<input type="text" class="form-control"  name="telphone" maxlength="20"   placeholder="000-000-000"  required/>
+	          		<input type="text" class="form-control"  name="phone" maxlength="20"   placeholder="000-000-000"  required/>
 	        	</div>
 	      	</div>
 
@@ -110,12 +110,12 @@
 		        <!--   Adress -->
 		        <div class="font-style col-xs-5">
 	          		<label for="street">Adress:</label>
-		          	<input type="text"  class="form-control" id="street" placeholder="Enter your street " name="street">
+		          	<input type="text"  class="form-control" id="adress" placeholder="Enter your Adress " name="adress">
 		        </div>
 		        <!--   Zipcode -->
 		        <div class="font-style col-xs-2">
 		          	<label for="zip">ZipCode:</label>
-	          		<input type="text"  class="form-control" id="zip" maxlength="10"placeholder="Enter Zip Code " name="zip">
+	          		<input type="text"  class="form-control" id="zip" maxlength="10"placeholder="Enter Zip Code " name="zipcode">
 		        </div>
 	      	</div>
 
@@ -132,11 +132,19 @@
 		        </div>
 		    </div>
 
+		    <!--   EMAIL row -->
+	      	<div class="row">
+	        	<div class="font-style ">
+	          		<label for="email">Email :</label>
+	          		<input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+	        	</div>
+	      	</div>
+
 		    <!--   USERNAME row -->
 	      	<div class="row">
 	        	<div class="font-style ">
-	          		<label for="username">Username (your email):</label>
-	          		<input type="email" class="form-control" id="username" placeholder="Username (email)" name="username" required>
+	          		<label for="username">Username :</label>
+	          		<input type="text" class="form-control" id="username" placeholder="Username (email)" name="userName" required>
 	        	</div>
 	      	</div>
 
@@ -144,21 +152,13 @@
 	      	<div class="row">
 	        	<div class="font-style " >
 	          		<label  for="password">Password:</label>
-	          		<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
-	        	</div>
-	      	</div>
-
-	      	<!--   REPEAT PASSWORD -->
-	      	<div class="row">
-	        	<div class="font-style " >
-	          		<label for="password">Repeat password:</label>
-	          		<input type="password" class="form-control" id="pwd" placeholder="Repeat password" name="pwd" required>
+	          		<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
 	        	</div>
 	      	</div>
 
 
 	      	<!--   BUTTON -->
-	        <button class="sign-up btn btn-primary btn-lg btn-block"><b>Sign Up</b>
+	        <button type="submit" class="sign-up btn btn-primary btn-lg btn-block"><b>Sign Up</b>
 				<!--         Sign Up font icon -->
 	      		<i class="fa fa-user-plus" aria-hidden="true"></i>
 	      	</button>

@@ -11,7 +11,7 @@ import com.capgemini.heskuelita.data.DataException;
 
 public class DBConnectionManager {
 
-
+	//Declaration of atributes
 	private String dbURL;
 	private String user;
 	private String password;

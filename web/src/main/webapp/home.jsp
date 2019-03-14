@@ -3,8 +3,9 @@
 <html>
 <head>
     <meta charset="US-ASCII">
-    <title>Login Page</title>
+    <title>Home</title>
 </head>
+
 <body>
 
 <%User us = (User)session.getAttribute ("user");%>

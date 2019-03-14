@@ -49,24 +49,15 @@ public class UserDaoJDBC implements IUserDao{
     }
 
 
+    public void insertUser(User user) throws SQLException {
+
+        try {
+
+            String SQL = "INSERT INTO users(us_user, us_password, us_email)"
+                    + "VALUES (?, ?, ?)";
 
 
-    public Connection connect() throws SQLException {
-        final String url = "jdbc:postgresql://localhost/postgres";
-        final String user = "postgres";
-        final String password = "kira1234";
-        return DriverManager.getConnection(url, user, password);
-    }
-
-    public void insertUser(User user) {
-
-        String SQL = "INSERT INTO user(us_username, us_password, us_email)"
-                + "VALUES (?, ?, ?)";
-
-
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL,
-                     Statement.RETURN_GENERATED_KEYS)) {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
 
             pstmt.setString(1, user.getUserName());
             pstmt.setString(2, user.getPassword());
@@ -74,8 +65,10 @@ public class UserDaoJDBC implements IUserDao{
 
             pstmt.executeUpdate();
 
-        } catch (SQLException ex) {
+        }catch(SQLException ex){
+
             System.out.println(ex.getMessage());
+
         }
 
     }

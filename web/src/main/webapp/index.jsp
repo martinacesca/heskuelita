@@ -25,7 +25,7 @@
     </header>
 
     <!-- LOGN IN FORM  -->
-    <form action="register" method="post">
+    <form action="login" method="post">
        <!--   con = Container  for items in the form-->
        <div class="con">
            <!--    form Title  -->
