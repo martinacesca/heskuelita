@@ -3,7 +3,6 @@ package com.capgemini.heskuelita.web.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,61 +10,56 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
+
+import com.capgemini.heskuelita.data.entity.StudentAnnotation;
+import com.capgemini.heskuelita.data.entity.UserAnnotation;
+import com.capgemini.heskuelita.data.impl.UserAnnotationDao;
+import org.hibernate.SessionFactory;
 
 
 
-import com.capgemini.heskuelita.core.beans.Student;
-import com.capgemini.heskuelita.core.beans.User;
-import com.capgemini.heskuelita.data.IStudentDao;
-import com.capgemini.heskuelita.data.IUserDao;
-import com.capgemini.heskuelita.data.db.DBConnectionManager;
-import com.capgemini.heskuelita.data.impl.StudentDaoJDBC;
-import com.capgemini.heskuelita.data.impl.UserDaoJDBC;
-import com.capgemini.heskuelita.service.ISecurityService;
-import com.capgemini.heskuelita.service.impl.SecurityServiceImpl;
-import org.apache.commons.dbcp2.BasicDataSource;
-import java.sql.PreparedStatement;
+import com.capgemini.heskuelita.data.impl.StudentAnnotationDao;
+import com.capgemini.heskuelita.data.util.HibernateUtil;
 
 
-@WebServlet("/register")
-public class RegisterServlet extends HttpServlet {
+
+@WebServlet("/form")
+public class FormServlet extends HttpServlet {
 
 
   //  private ISecurityService securityService;
-    private UserDaoJDBC userDaoJDBC;
-    private StudentDaoJDBC studentDaoJDBC;
+    private UserAnnotationDao userAnnotationDao;
+    private StudentAnnotationDao studentAnnotationDao;
 
-    public RegisterServlet (){
+    public FormServlet(){
         super();
     }
 
     @Override
     public void init (ServletConfig config) throws ServletException{
 
-        ServletContext context = config.getServletContext();
 
-        DBConnectionManager manager = (DBConnectionManager) context.getAttribute("db");
+        SessionFactory manager = HibernateUtil.getSessionFactory();
 
 
-        try {
+    //    try {
 
       //      this.securityService = new SecurityServiceImpl(new UserDaoJDBC(manager.getConnection()));
-            this.studentDaoJDBC = new StudentDaoJDBC(manager.getConnection());
-            this.userDaoJDBC = new UserDaoJDBC(manager.getConnection());
+            this.studentAnnotationDao = new StudentAnnotationDao(manager);
+            this.userAnnotationDao = new UserAnnotationDao(manager);
 
-        } catch (Exception e) {
+     //   } catch (Exception e) {
 
-            throw new ServletException(e);
-        }
+    //       throw new ServletException(e);
+     //   }
     }
 
 
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse res) throws IOException{
 
-        Student student = new Student();
-        User user = new User();
+        StudentAnnotation student = new StudentAnnotation();
+        UserAnnotation user = new UserAnnotation();
 
         try{
             student.setName(req.getParameter("name"));
@@ -84,8 +78,8 @@ public class RegisterServlet extends HttpServlet {
             user.setPassword(req.getParameter("password"));
 
 
-            studentDaoJDBC.insertStudent (student);
-            userDaoJDBC.insertUser (user);
+            studentAnnotationDao.insertStudent (student);
+            userAnnotationDao.insertUser (user);
    //         res.sendRedirect("home.jsp");
 
         }catch(SQLException e){

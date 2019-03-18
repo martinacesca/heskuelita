@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/reg.css">
+  <link rel="stylesheet" href="css/form.css">
 
   <title>Sign Up </title>
 
@@ -30,7 +30,7 @@
   	</header>
 
 	<!-- LOGN IN FORM  -->
-    <form action="register" method="post" >
+    <form action="form" method="post" >
     	<!--    form Title  -->
     	<header class="font-subtitle">
           <h2><b>Sign Up</b> </h2>
@@ -152,7 +152,7 @@
 	      	<div class="row">
 	        	<div class="font-style " >
 	          		<label  for="password">Password:</label>
-	          		<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+	          		<input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
 	        	</div>
 	      	</div>
 

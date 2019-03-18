@@ -43,7 +43,7 @@
                 <i class="fa fa-user-circle"></i>
               </span>
               <!--   user name Input-->
-              <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
+              <input class="form-input" id="txt-input" type="text" placeholder="UserName" name="userName"required>
               <br>
 
               <!--   PASSWORD -->
@@ -51,7 +51,7 @@
                 <i class="fa fa-key"></i>
               </span>
               <!--   Password Input-->
-              <input class="form-input" type="password" placeholder="Password" id="pwd"  name="password" required>
+              <input class="form-input" type="password" placeholder="Password"  name="password" required>
 
               <!--      Show/hide password  -->
               <span>
@@ -69,7 +69,7 @@
           <!--  SIGN UP BUTTON -->
           <div class="other">
               <!--    button -->
-              <a href="register.jsp">
+              <a href="form.jsp">
                 <button class="log-in sign-up">Sign Up
                 <!--     font icon -->
                 <i class="fa fa-user-plus" aria-hidden="true"></i>

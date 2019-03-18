@@ -1,19 +1,49 @@
-package com.capgemini.heskuelita.core.beans;
+package com.capgemini.heskuelita.data.entity;
 
 
-public class Person extends Component{
+import javax.persistence.*;
 
-    //Declaration of Person atributes
+@Entity(name = "Student")
+@Table(name = "student2")
+public class StudentAnnotation {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "student_seq")
+    @SequenceGenerator(name = "student_seq", sequenceName = "student_seq")
+    @Column(name = "stu_id", nullable = false, unique = true)
+    private int id;
+
+    @Column(name = "stu_name", length = 20)
     private String name;
+
+    @Column(name = "stu_last_name", length = 20)
     private String lastName;
+
+    @Column(name = "stu_birthdate", length = 50)
     private String birthdate;
+
+    @Column(name = "stu_document_type", length = 20)
     private String documentType;
+
+    @Column(name = "stu_identification", length = 50)
     private String identification;
+
+    @Column(name = "stu_phone", length = 50)
     private String phone;
+
+    @Column(name = "stu_sex", length = 50)
     private String sex;
+
+    @Column(name = "stu_city", length = 100)
     private String city;
+
+    @Column(name = "stu_adress", length = 100)
     private String adress;
+
+    @Column(name = "stu_zipcode", length = 50)
     private String zipcode;
+
+
 
     // Getters and Setters: Name
     public String getName() {
@@ -98,14 +128,15 @@ public class Person extends Component{
 
 
     //Constructor without atributes
-    public Person () {
+    public StudentAnnotation () {
         super ();
     }
 
-    // Constructor ALL Person atributes EXCEPT ID.
-    public Person( String name, String lastName, String birthdate, String documentType,
+    // Constructor ALL student atributes EXCEPT ID.
+    public StudentAnnotation( String name, String lastName, String birthdate, String documentType,
                    String identification, String phone, String sex, String city, String adress, String zipcode) {
 
+        super();
         this.name = name;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -118,11 +149,12 @@ public class Person extends Component{
         this.zipcode = zipcode;
     }
 
-    // Constructor ALL Person atributes
-    public Person( long id, String name, String lastName, String birthdate, String documentType,
+    // Constructor ALL student atributes
+    public StudentAnnotation( int id, String name, String lastName, String birthdate, String documentType,
                    String identification, String phone, String sex, String city, String adress, String zipcode) {
 
-        super(id);
+        super();
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.birthdate = birthdate;
@@ -134,5 +166,6 @@ public class Person extends Component{
         this.adress = adress;
         this.zipcode = zipcode;
     }
+
 
 }
