@@ -12,12 +12,14 @@ import org.slf4j.LoggerFactory;
 import com.capgemini.heskuelita.data.util.HibernateUtil;
 
 
-
+/*  Student Annotaton DAO
+ *  Implements IStudentDao interface
+ *
+ * */
 public class StudentAnnotationDao implements IStudentDao {
 
 
     private static SessionFactory sessionFactory;
-
     private static final Logger logger = LoggerFactory.getLogger (StudentAnnotationDao.class);
 
 
@@ -25,47 +27,25 @@ public class StudentAnnotationDao implements IStudentDao {
         super();
         this.sessionFactory = sessionFactory;
     }
-/*
-    public HibernateXMLTest () {
 
-        super ();
-    }
-
-
-    @BeforeAll
-    public static void setup () {
-
-        sessionFactory = HibernateUtil.getSessionFactory ();
-    }
-
-    @AfterAll
-    public static void destroy () {
-
-        sessionFactory.close ();
-    }
-
-    */
 
     public static void setup () {
-
         sessionFactory = HibernateUtil.getSessionFactory ();
     }
 
 
-    //   @DisplayName ("Create new meeting")
+    /*  Insert Student
+     *  This function inserts a new student row in the postgres table
+     * */
     @Override
-    // VER CONECCION PRIMER LINEA Y SI THORWS O NO
     public void insertStudent(StudentAnnotation student) throws SQLException {
 
-        // Setup
-        //      sessionFactory = HibernateUtil.getSessionJavaConfigFactory();
-
         setup();
-
 
         // Get a session.
         Session session = null;
         Transaction tx = null;
+
         try {
 
             logger.info("Getting a session...");
@@ -85,22 +65,23 @@ public class StudentAnnotationDao implements IStudentDao {
                                                         student.getCity(),
                                                         student.getZipcode(),
                                                         student.getAdress()     );
+
             // Save the data.
             logger.info(String.format("Saving value %s", sa.getName()));
             session.save(sa);
             logger.info(String.format("Value %s saved!", sa.getName()));
 
             tx.commit();
-       //     Assertions.assertTrue(m.getId() > 0, String.format("Problems creating the new meeting type %s", m.getSubject()));
 
         } catch (Exception ex) {
 
             logger.error(ex.getMessage());
             tx.rollback();
-      //      Assertions.assertFalse(Boolean.TRUE, "Problems executing the test.");
 
         } finally {
+
             session.close();
+
         }
 
 

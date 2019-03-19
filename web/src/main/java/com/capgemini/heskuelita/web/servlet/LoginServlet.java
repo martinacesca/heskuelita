@@ -24,41 +24,50 @@ public class LoginServlet extends HttpServlet {
     private ISecurityService securityService;
 
     public LoginServlet (){
-
         super();
     }
 
+    /*  init
+     *  starts the connection
+     *  */
     @Override
     public void init (ServletConfig config) throws ServletException {
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         try {
-
             this.securityService = new SecurityServiceImpl (new UserAnnotationDao(sessionFactory));
         } catch (Exception e) {
-
             throw new ServletException(e);
         }
+
     }
 
+
+
+    /*  do post
+     *  Get information from the login form, verifies its
+     *  autenticity,and redirect error or home
+     *  */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserAnnotation user = new UserAnnotation ();
-        user.setUserName (req.getParameter("user"));
+        user.setUserName (req.getParameter("userName"));
         user.setPassword (req.getParameter("password"));
 
         try {
-            this.securityService.login(user);
 
+            this.securityService.login(user);
             HttpSession session = req.getSession();
             session.setAttribute("user",user);
-
             resp.sendRedirect("home.jsp");
+
         } catch (Exception e){
-            //throw new ServletException(e);
-            //e.printStackTrace();
+
+            e.printStackTrace();
             resp.sendRedirect("err.jsp");
+
         }
     }
+
 }

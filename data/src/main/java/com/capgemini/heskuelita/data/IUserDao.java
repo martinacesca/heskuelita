@@ -4,6 +4,7 @@ import com.capgemini.heskuelita.data.entity.UserAnnotation;
 
 import java.sql.SQLException;
 
+
 public interface IUserDao {
 
     UserAnnotation login (String userName, String password);

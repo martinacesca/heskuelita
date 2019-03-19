@@ -5,11 +5,10 @@
 <head>
 
   <meta charset="US-ASCII">
-  <link rel="stylesheet" href="css/err.css">
-
+  <link rel="stylesheet" href="css/success.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <title>Error</title>
+  <title>Success</title>
 
 </head>
 
@@ -30,11 +29,11 @@
        <!--   Container  message -->
        <div class="con">
               <header class="head-form">
-              <h2 class="mes">OOPS... Something went wrong </h2><br>
-              <p>incorrect username or password!</p>
-               <a href="index.jsp">
+              <h2 class="mes">Your acount was Succesfully created! </h2><br>
+                <br>
+                <a href="index.jsp">
                     <p ><b> Go back to log in page....</b></p>
-               </a>
+                </a>
 
            </header>
            <br>

@@ -1,12 +1,17 @@
 package com.capgemini.heskuelita.data.entity;
 
-
 import javax.persistence.*;
 
+/*  Student Annotaton Class
+*   It is mapped with student2.sql Postgres table
+* */
 @Entity(name = "Student")
 @Table(name = "student2")
 public class StudentAnnotation {
 
+    /*
+     *      Atribute declaration
+     * */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "student_seq")
     @SequenceGenerator(name = "student_seq", sequenceName = "student_seq")
@@ -44,6 +49,10 @@ public class StudentAnnotation {
     private String zipcode;
 
 
+
+    /*
+     *      Getters and setters
+     * */
 
     // Getters and Setters: Name
     public String getName() {
@@ -126,6 +135,10 @@ public class StudentAnnotation {
     }
 
 
+
+    /*
+     *      Constructors
+     * */
 
     //Constructor without atributes
     public StudentAnnotation () {

@@ -13,19 +13,14 @@ import org.slf4j.LoggerFactory;
 
 public final class HibernateUtil {
 
-
     private static SessionFactory sessionFactory;
 
-
     private static final Logger logger = LoggerFactory.getLogger (HibernateUtil.class);
-
 
     private HibernateUtil() {
 
         super ();
     }
-
-
 
     private static SessionFactory buildSessionFactory () {
 
@@ -50,7 +45,6 @@ public final class HibernateUtil {
         }
     }
 
-    
 	public static SessionFactory getSessionFactory () {
 
 		if (sessionFactory == null) { sessionFactory = buildSessionFactory (); }

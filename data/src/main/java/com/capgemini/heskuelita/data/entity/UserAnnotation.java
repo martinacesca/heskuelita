@@ -3,12 +3,17 @@ package com.capgemini.heskuelita.data.entity;
 
 import javax.persistence.*;
 
-
+/*  User Annotaton Class
+ *  It is mapped with users.sql Postgres table
+ * */
 @Entity (name =  "User")
 @Table (name = "users")
 public class UserAnnotation {
 
 
+    /*
+     *      Atributes declaration
+     * */
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "users_seq")
     @SequenceGenerator(name = "users_seq", sequenceName = "users_seq")
@@ -26,8 +31,9 @@ public class UserAnnotation {
 
 
 
-
-
+    /*
+     *      Getters and setters
+     * */
     public int getId () {
 
         return this.id;
@@ -70,12 +76,15 @@ public class UserAnnotation {
 
 
 
+    /*
+     *      Constructors
+     * */
+
     //Constructor without atributes
     public UserAnnotation () {
 
         super ();
     }
-
 
     // Constructor ALL Usr atributes EXCEPT ID.
     public UserAnnotation (String userName, String email, String password) {

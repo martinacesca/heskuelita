@@ -6,5 +6,4 @@ public interface ISecurityService {
 
     void login (UserAnnotation user) throws SecurityException;
 
-
 }

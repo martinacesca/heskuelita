@@ -1,6 +1,5 @@
 package com.capgemini.heskuelita.web.servlet;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -16,18 +15,17 @@ import com.capgemini.heskuelita.data.entity.UserAnnotation;
 import com.capgemini.heskuelita.data.impl.UserAnnotationDao;
 import org.hibernate.SessionFactory;
 
-
-
 import com.capgemini.heskuelita.data.impl.StudentAnnotationDao;
 import com.capgemini.heskuelita.data.util.HibernateUtil;
 
 
-
+/*  Form Servlet
+ *  extends HttpServlet
+ *
+ *  */
 @WebServlet("/form")
 public class FormServlet extends HttpServlet {
 
-
-  //  private ISecurityService securityService;
     private UserAnnotationDao userAnnotationDao;
     private StudentAnnotationDao studentAnnotationDao;
 
@@ -35,26 +33,23 @@ public class FormServlet extends HttpServlet {
         super();
     }
 
+    /*  init
+     *  starts the connection and
+     *  inicializates studentAnnotationDao and userAnottationDao
+     *  */
     @Override
     public void init (ServletConfig config) throws ServletException{
 
-
         SessionFactory manager = HibernateUtil.getSessionFactory();
+        this.studentAnnotationDao = new StudentAnnotationDao(manager);
+        this.userAnnotationDao = new UserAnnotationDao(manager);
 
-
-    //    try {
-
-      //      this.securityService = new SecurityServiceImpl(new UserDaoJDBC(manager.getConnection()));
-            this.studentAnnotationDao = new StudentAnnotationDao(manager);
-            this.userAnnotationDao = new UserAnnotationDao(manager);
-
-     //   } catch (Exception e) {
-
-    //       throw new ServletException(e);
-     //   }
     }
 
-
+    /*  do post
+     *  Get information from the form and adds it in a
+     *  StudentAnottation and UserAnottation object
+     *  */
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse res) throws IOException{
 
@@ -77,15 +72,16 @@ public class FormServlet extends HttpServlet {
             user.setUserName(req.getParameter("userName"));
             user.setPassword(req.getParameter("password"));
 
-
             studentAnnotationDao.insertStudent (student);
             userAnnotationDao.insertUser (user);
-   //         res.sendRedirect("home.jsp");
 
         }catch(SQLException e){
+
             e.printStackTrace();
-            res.sendRedirect("err.jsp");
+
         }
+
+        res.sendRedirect("success.jsp");
 
     }
 
